@@ -7,7 +7,8 @@ main {
     background-color: rgb(207, 216, 213);
     margin: 10px;
     padding: 30px;
-    height: 850px;
+    min-height: calc(100vh - 20px);
+    overflow: hidden;
 }
 
 .justify-center {
