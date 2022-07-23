@@ -20,7 +20,7 @@ function randomOpen() {
 }
 
 function randomWord() {
-    var fullPhraseChance = Math.floor(Math.random() * 10)
+    let fullPhraseChance = Math.floor(Math.random() * 10)
     if (fullPhraseChance < 2) {
         return prefixes[Math.floor(Math.random() * prefixes.length)] + ends[Math.floor(Math.random() * ends.length)];
     } else if (fullPhraseChance < 5) {
@@ -38,7 +38,7 @@ function randomConnector() {
 }
 
 function randomSentance() {
-    var sentanceStructure = Math.floor(Math.random() * 7);
+    let sentanceStructure = Math.floor(Math.random() * 7);
     console.log(sentanceStructure);
     if (sentanceStructure < 1) {
         return `The ${randomAdj()} ${randomWord()} ${randomConnector()} ${randomWord()}.`;
@@ -47,8 +47,8 @@ function randomSentance() {
     } else if (sentanceStructure < 3) {
         return `Due to the ${randomWord()}, the ${randomWord()} ${randomConnector()} ${randomAdj()} ${randomWord()}.`;
     } else if (sentanceStructure < 4) {
-        var ifConclusive = Math.floor(Math.random() * 5);
-        var results = "";
+        let ifConclusive = Math.floor(Math.random() * 5);
+        let results = "";
         if (ifConclusive < 1) {
             results = "conclusive";
         } else if (ifConclusive < 2) {
