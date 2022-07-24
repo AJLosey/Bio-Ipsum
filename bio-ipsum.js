@@ -7,34 +7,38 @@ const fullNouns = ["<i>Drosophila melanogaster</i>", "thoracic vertebra", "coccy
 const connectors = ["is to be administered through the", "adapted to the", "parasitizes the", "is located distally to the", "of the", "consumes the", "breaks down the", "shares a common ancestor with the", "denatures the", "attaches to the", "develops into the", "differentiates the", "is secreted by the", "remains as a byproduct of", "was found in the fossil record with", "is a symptom of", "divides into the", "migrates from the", "grew rapidly in the presence of", "can process the", "sequesters the", "serves as an environmental resevoir for the", "rapidly necrotizes the", "is dependant on", "can cause complications with", "acts as a control on the population of", "shares many similarities with the", "excretes the", "moves toward the", "is a causitive agent of the", "can not pass through the"];
 const fullPhrases = ["Crikey!", "The mitochrondria is the powerhouse of the cell.", "It then evolved into a crab.", "Conservation efforts are ongoing", "Our scientists were so preoccupied with whether they could, they didn't stop to think if they should.", "It seems to me that the natural world is the greatest source of excitement; the greatest source of visual beauty, the greatest source of intellectual interest. It is the greatest source of so much in life that makes life worth living.", "The patient made a full recovery", "A diagnosis can't be made at this time.",];
 
-function randomAdj() {
-    return adjectives[Math.floor(Math.random() * adjectives.length)];
-}
-
-function randomPhrase() {
-    return fullPhrases[Math.floor(Math.random() * fullPhrases.length)];
-}
-
-function randomOpen() {
-    return openers[Math.floor(Math.random() * openers.length)];
+function getRandomFromArray(arr) {
+    return arr[Math.floor(Math.random() * arr.length)]
 }
 
 function randomWord() {
     let fullPhraseChance = Math.floor(Math.random() * 10)
     if (fullPhraseChance < 2) {
-        return prefixes[Math.floor(Math.random() * prefixes.length)] + ends[Math.floor(Math.random() * ends.length)];
+        return getRandomFromArray(prefixes) + getRandomFromArray(ends);
     } else if (fullPhraseChance < 5) {
-        return prefixes[Math.floor(Math.random() * prefixes.length)] + "o" + prefixes[Math.floor(Math.random() * prefixes.length)] + ends[Math.floor(Math.random() * ends.length)];
+        return getRandomFromArray(prefixes) + "o" + getRandomFromArray(prefixes) + getRandomFromArray(ends);
     } else if (fullPhraseChance < 6) {
-        return prefixes[Math.floor(Math.random() * prefixes.length)] + "o" + prefixes[Math.floor(Math.random() * prefixes.length)] + "o" + prefixes[Math.floor(Math.random() * prefixes.length)] + ends[Math.floor(Math.random() * ends.length)];
+        return getRandomFromArray(prefixes) + "o" + getRandomFromArray(prefixes) + "o" + getRandomFromArray(prefixes) + getRandomFromArray(ends);
     } else {
-        return fullNouns[Math.floor(Math.random() * fullNouns.length)];
+        return getRandomFromArray(fullNouns);
     }
 
 }
 
+function randomAdj() {
+    getRandomFromArray(adjectives);
+}
+
 function randomConnector() {
-    return connectors[Math.floor(Math.random() * connectors.length)];
+    getRandomFromArray(connectors);
+}
+
+function randomPhrase() {
+    getRandomFromArray(fullPhrases);
+}
+
+function randomOpen() {
+    getRandomFromArray(openers);
 }
 
 function randomSentance() {
